@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wallboard Guide (Learner-Friendly)</title>
+<style>
+  :root {
+    --bg: #f7f5ff;
+    --card: #ffffff;
+    --ink: #1f2937;
+    --muted: #6b7280;
+    --brand-1: #7c3aed;
+    --brand-2: #22d3ee;
+    --brand-3: #f97316;
+    --accent-1: #10b981;
+    --accent-2: #f43f5e;
+    --accent-3: #eab308;
+    --accent-4: #06b6d4;
+    --ring: #a78bfa55;
+    --shadow: 0 10px 20px rgba(31,41,55,.08), 0 6px 6px rgba(31,41,55,.06);
+    --dropdown-bg: #f3f4f6; /* softer gray background */
+    --dropdown-hover: #e2e8f0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b1020;
+      --card: #1e293b;
+      --ink: #f1f5f9;
+      --muted: #cbd5e1;
+      --ring: #7c3aed55;
+      --shadow: 0 10px 20px rgba(0,0,0,.35), 0 6px 6px rgba(0,0,0,.3);
+      --dropdown-bg: #334155;
+      --dropdown-hover: #475569;
+    }
+  }
+
+  body {
+    margin: 0; font-family: ui-sans-serif, system-ui, Arial;
+    line-height: 1.6; color: var(--ink); background: var(--bg); padding: 24px;
+  }
+
+  .wb {
+    max-width: 880px; margin: auto; background: var(--card); border-radius: 20px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+
+  .wb__header {
+    padding: 28px 24px;
+    background: linear-gradient(135deg, var(--brand-1), var(--brand-2) 50%, var(--brand-3));
+    color: white;
+  }
+
+  details {
+    background: var(--dropdown-bg);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(0,0,0,.08);
+    overflow: hidden;
+  }
+
+  summary {
+    list-style: none; cursor: pointer; font-weight: 700;
+    padding: 14px 16px; margin: 0;
+    background: var(--dropdown-bg);
+    transition: background .2s ease;
+  }
+  summary:hover { background: var(--dropdown-hover); }
+  summary::-webkit-details-marker { display: none; }
+
+  .content { padding: 12px 18px 16px; background: var(--card); }
+  .content ul { margin: 8px 0 12px 0; padding-left: 18px; }
+  .content li { margin-bottom: 6px; }
+
+</style>
+</head>
+<body>
+  <article class="wb">
+    <header class="wb__header">
+      <h1>Reviewing the Wallboard Displays</h1>
+      <p>Use these colorful, collapsible cards to quickly understand team capacity and work performance.</p>
+    </header>
+
+    <section style="padding:18px 22px;">
+      <p>Set your filters first, then open the sections below. Each one explains what the chart/widget means and how to act on it.</p>
+    </section>
+
+    <details>
+      <summary>Work Item Status</summary>
+      <div class="content">
+        <ul>
+          <li><strong>Waiting:</strong> Case is in backlog, not yet assigned.</li>
+          <li><strong>Assigned:</strong> Routed and accepted by an agent but not yet being worked.</li>
+          <li><strong>In Progress:</strong> Agent is actively working the case.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Agent Capacity</summary>
+      <div class="content">
+        <p>This chart shows:</p>
+        <ul>
+          <li><strong>Available Capacity:</strong> Remaining space to take new work.</li>
+          <li><strong>Used Capacity:</strong> How much is currently being consumed.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Agent Capacity Status</summary>
+      <div class="content">
+        <ul>
+          <li><strong>At Capacity:</strong> Fully occupied.</li>
+          <li><strong>Available:</strong> Ready to take new work.</li>
+          <li><strong>Busy:</strong> Logged in but not accepting work.</li>
+          <li><strong>Idle:</strong> Online but handling no work.</li>
+          <li><strong>Offline:</strong> Not logged in.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Agent Presence Statuses</summary>
+      <div class="content">
+        <p>Shows how agents are spending their time (e.g., Available, In Meeting, On Lunch).</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Wait Time</summary>
+      <div class="content">
+        <p>Tracks how long unassigned work waits in backlog before being picked up.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Agent Work Statuses</summary>
+      <div class="content">
+        <ul>
+          <li><strong>Assigned:</strong> Work routed and delivered to an agent.</li>
+          <li><strong>Opened:</strong> Agent started working the item.</li>
+          <li><strong>Closed:</strong> Work completed and resolved.</li>
+          <li><strong>Unavailable:</strong> Couldn’t be routed due to status.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Work Performance</summary>
+      <div class="content">
+        <p>Measures effectiveness once assigned:</p>
+        <ul>
+          <li><strong>Average Work Handle Time:</strong> From assignment to completion.</li>
+        </ul>
+      </div>
+    </details>
+  </article>
+</body>
+</html>
