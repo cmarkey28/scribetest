@@ -19,7 +19,7 @@
     --accent-4: #06b6d4;
     --ring: #a78bfa55;
     --shadow: 0 10px 20px rgba(31,41,55,.08), 0 6px 6px rgba(31,41,55,.06);
-    --dropdown-bg: #f3f4f6; /* softer gray background */
+    --dropdown-bg: #f3f4f6;
     --dropdown-hover: #e2e8f0;
   }
 
@@ -79,20 +79,20 @@
   <article class="wb">
     <header class="wb__header">
       <h1>Reviewing the Wallboard Displays</h1>
-      <p>Use these colorful, collapsible cards to quickly understand team capacity and work performance.</p>
     </header>
 
     <section style="padding:18px 22px;">
-      <p>Set your filters first, then open the sections below. Each one explains what the chart/widget means and how to act on it.</p>
+      <p>Once your desired filters are set, you can review the Wallboard displays.</p>
     </section>
 
     <details>
       <summary>Work Item Status</summary>
       <div class="content">
+        <p>This chart shows the current state of all routed work items</p>
         <ul>
-          <li><strong>Waiting:</strong> Case is in backlog, not yet assigned.</li>
-          <li><strong>Assigned:</strong> Routed and accepted by an agent but not yet being worked.</li>
-          <li><strong>In Progress:</strong> Agent is actively working the case.</li>
+          <li><strong>Waiting:</strong> Case is in backlog, not yet assigned (no available agent/skill or all at capacity).</li>
+          <li><strong>Assigned:</strong> Case has been routed and accepted by an agent but not yet being worked.</li>
+          <li><strong>In Progress:</strong> Agent is actively working the case (opened or moved into a working state).</li>
         </ul>
       </div>
     </details>
@@ -100,49 +100,64 @@
     <details>
       <summary>Agent Capacity</summary>
       <div class="content">
-        <p>This chart shows:</p>
+        <p>Shows two key values:</p>
         <ul>
-          <li><strong>Available Capacity:</strong> Remaining space to take new work.</li>
-          <li><strong>Used Capacity:</strong> How much is currently being consumed.</li>
+          <li><strong>Available Capacity:</strong> How much capacity remains across online agents to take new work.</li>
+          <li><strong>Used Capacity:</strong> How much capacity is currently being consumed by ongoing work.</li>
         </ul>
+        <p>This helps you instantly see whether your team has room to handle more or is overloaded.</p>
       </div>
     </details>
 
     <details>
       <summary>Agent Capacity Status</summary>
       <div class="content">
+        <p>Shows a breakdown of agents by their load:</p>
         <ul>
-          <li><strong>At Capacity:</strong> Fully occupied.</li>
-          <li><strong>Available:</strong> Ready to take new work.</li>
-          <li><strong>Busy:</strong> Logged in but not accepting work.</li>
-          <li><strong>Idle:</strong> Online but handling no work.</li>
+          <li><strong>At Capacity:</strong> Fully occupied—no more work can be assigned.</li>
+          <li><strong>Available:</strong> Ready and able to take new work.</li>
+          <li><strong>Busy:</strong> Logged in but marked as not accepting new items.</li>
+          <li><strong>Idle:</strong> Online but currently handling no work.</li>
           <li><strong>Offline:</strong> Not logged in.</li>
         </ul>
+        <p>This bar or donut chart helps balance workload and identify who might be underutilized.</p>
       </div>
     </details>
 
     <details>
       <summary>Agent Presence Statuses</summary>
       <div class="content">
-        <p>Shows how agents are spending their time (e.g., Available, In Meeting, On Lunch).</p>
+        <p>Shows the distribution of agents by their actual presence:</p>
+        <ul>
+          <li>Available, In Meeting, Focus Time, On Lunch, Etc.</li>
+        </ul>
+        <p>Helps managers spot whether reps are spending too much time away, offline, or available but not receiving work.</p>
       </div>
     </details>
 
     <details>
       <summary>Wait Time</summary>
       <div class="content">
-        <p>Tracks how long unassigned work waits in backlog before being picked up.</p>
+        <ul>
+          <li>This chart tracks how long unassigned work has been waiting in the backlog before an agent picks it up.</li>
+          <li>Often shown as average wait time or longest wait time.</li>
+          <li>Calculated from the moment work enters Omni-Channel until it’s assigned.</li>
+        </ul>
       </div>
     </details>
 
     <details>
       <summary>Agent Work Statuses</summary>
       <div class="content">
+        <p>Tracks how many work items were:</p>
         <ul>
-          <li><strong>Assigned:</strong> Work routed and delivered to an agent.</li>
-          <li><strong>Opened:</strong> Agent started working the item.</li>
-          <li><strong>Closed:</strong> Work completed and resolved.</li>
-          <li><strong>Unavailable:</strong> Couldn’t be routed due to status.</li>
+          <li><strong>Assigned:</strong> Work was routed and delivered to an agent.</li>
+          <li><strong>Opened:</strong> Agent has actively opened/started working the item.</li>
+          <li><strong>Closed:</strong> Work completed and resolved by the agent.</li>
+          <li><strong>Unavailable:</strong> Work could not be routed because the agent wasn’t in an Available state.</li>
+          <li><strong>Declined</strong> (does not apply): Agent explicitly rejected the routed work.</li>
+          <li><strong>Push Timeout</strong> (does not apply): Agent didn’t respond in time, so the work offer expired.</li>
+          <li><strong>Canceled</strong> (does not apply): Work was withdrawn (e.g., borrower ended chat, case pulled back).</li>
         </ul>
       </div>
     </details>
@@ -150,12 +165,23 @@
     <details>
       <summary>Work Performance</summary>
       <div class="content">
-        <p>Measures effectiveness once assigned:</p>
+        <p>Work Performance measures how effectively reps are <em>handling the work</em> once it’s assigned.</p>
         <ul>
-          <li><strong>Average Work Handle Time:</strong> From assignment to completion.</li>
+          <li><strong>Average Work Handle Time:</strong> Total time from when work is assigned to when it’s completed/closed.</li>
+          <li><strong>Average Speed to Answer</strong> (does not apply): How long work items wait before an agent accepts them.</li>
+          <li><strong>Average Active Work Time</strong> (does not apply): The time agents spend actively engaged on the work (not just holding it).</li>
+          <li><strong>After Conversation Time</strong> (does not apply): Wrap-up time agents spend finalizing notes or tasks after closing the work.</li>
         </ul>
       </div>
     </details>
+
+    <details>
+      <summary>Raised Flags</summary>
+      <div class="content">
+        <p>Does not apply</p>
+      </div>
+    </details>
+
   </article>
 </body>
 </html>
